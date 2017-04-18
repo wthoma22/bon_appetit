@@ -31,9 +31,20 @@ class PantryTest < Minitest::Test
     pantry = Pantry.new
 
     assert_equal 0, pantry.stock_check("Cheese")
-    binding.pry
     pantry.restock("Cheese", 30)
     assert_equal 30, pantry.stock_check("Cheese")
+  end
+
+  def test_pantry_can_add_to_shopping_list
+    pantry = Pantry.new
+    r = Recipe.new("Cheese Pizza")
+
+    r.add_ingredient("Cheese", 20)
+    r.add_ingredient("Flour", 20)
+
+    pantry.add_to_shopping_list(r)
+
+    assert_equal [Cheese: 20, Flour: 20], pantry.shopping_list
   end
 
 end
