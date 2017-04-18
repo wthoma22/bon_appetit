@@ -2,11 +2,12 @@ require './lib/recipe'
 
 class Pantry
 
-  attr_reader :stock, :shopping_list
+  attr_reader :stock, :shopping_list, :cookbook
 
   def initialize
     @stock = {}
     @shopping_list = {}
+    @cookbook = {}
   end
 
   def stock_check(ingredient)
@@ -30,8 +31,19 @@ class Pantry
   end
 
   def print_shopping_list(recipe)
-    recipe.ingredients.map do |ingredient|
-      p "* #{ingredient}"
+    recipe.ingredients.each do |ingredient|
+      p "* #{ingredient}\n"
+    end
+  end
+
+  def add_to_cookbook(recipe)
+    @cookbook = recipe
+  end
+
+  def what_can_i_make?
+    if pantry.cookbook.keys < recipe.amount_required
+      pantry.cookbook.keys
+    else 
     end
   end
 
