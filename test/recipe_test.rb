@@ -15,6 +15,7 @@ class RecipeTest < Minitest::Test
     assert_equal ["Flour"], r.ingredient_types
     r.add_ingredient("Cheese", 1500)
     assert_equal ["Flour", "Cheese"], r.ingredient_types
+    binding.pry
   end
 
   def test_it_tracks_amount_of_a_recipe_required
