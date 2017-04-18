@@ -29,4 +29,10 @@ class Pantry
     @shopping_list = recipe.ingredients
   end
 
+  def print_shopping_list(recipe)
+    recipe.ingredients.map do |ingredient|
+      p "* #{ingredient}"
+    end
+  end
+
 end

@@ -14,6 +14,7 @@ class RecipeTest < Minitest::Test
     r.add_ingredient("Flour", 500) # 500 "UNIVERSAL UNITS"
     assert_equal ["Flour"], r.ingredient_types
     r.add_ingredient("Cheese", 1500)
+    binding.pry
     assert_equal ["Flour", "Cheese"], r.ingredient_types
   end
 
